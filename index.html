@@ -117,7 +117,7 @@
         <span class="tag mb-3 inline-block">★ BURGERS DE VERDAD ★</span>
         <h1 class="pop leading-[0.85]" style="font-size:clamp(3.2rem,11vw,7rem);color:#d94a2b;text-shadow:5px 5px 0 #2a1a10">ROYO<br>BURGER</h1>
         <p class="lil text-base md:text-lg mt-3" style="color:#2a1a10">¡Carne 100% fresca · Pan artesano · Sabor brutal!</p>
-        <button onclick="document.querySelector('[data-go=1]').click()" class="lil mt-5 px-7 py-3 text-white" style="background:#d94a2b;border:4px solid #2a1a10;border-radius:100px;box-shadow:5px 5px 0 #2a1a10;font-size:1.1rem;cursor:pointer">VER EL MENÚ 🍔</button>
+        <button onclick="window.goTo(1)" class="lil mt-5 px-7 py-3 text-white" style="background:#d94a2b;border:4px solid #2a1a10;border-radius:100px;box-shadow:5px 5px 0 #2a1a10;font-size:1.1rem;cursor:pointer">VER EL MENÚ 🍔</button>
       </div>
     </div>
   </section>
@@ -223,6 +223,7 @@ function go(i){
   panels[i].classList.add('active');btns[i].classList.add('on');
 }
 btns.forEach(b=>b.addEventListener('click',()=>go(+b.dataset.go)));
+window.goTo=go;
 addEventListener('keydown',e=>{
   if(['ArrowRight','ArrowDown'].includes(e.key))go(Math.min(cur+1,4));
   if(['ArrowLeft','ArrowUp'].includes(e.key))go(Math.max(cur-1,0));
