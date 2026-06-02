@@ -3,217 +3,201 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Antonio Sánchez Royo ★ CV</title>
+<title>ROYO BURGER 🍔</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lilita+One&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%;overflow:hidden;font-family:'Zen Maru Gothic',sans-serif}
+  html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif}
   body{
     background:
-      radial-gradient(circle at 20% 20%,#bce3ff 0%,transparent 40%),
-      radial-gradient(circle at 80% 70%,#ffd9ec 0%,transparent 45%),
-      #fff6f0;
-    color:#1a1a2e;
+      radial-gradient(circle at 15% 15%,#ffe9a8 0%,transparent 40%),
+      radial-gradient(circle at 85% 80%,#ffd0c4 0%,transparent 45%),
+      #fff3e0;
+    color:#2a1a10;
   }
-
-  /* halftone dots overlay */
-  .halftone{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.35;
-    background-image:radial-gradient(#5b9bd5 1.4px,transparent 1.6px);
-    background-size:14px 14px;}
-
-  /* speed lines */
-  .speed{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.12;
-    background:repeating-conic-gradient(from 0deg at 50% 50%,#2b3a67 0deg 1deg,transparent 1deg 6deg);
-    animation:spin 60s linear infinite;}
+  /* halftone */
+  .dots{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.3;
+    background-image:radial-gradient(#e8a33d 1.4px,transparent 1.6px);background-size:16px 16px;}
+  /* sunburst */
+  .burst{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.1;
+    background:repeating-conic-gradient(from 0deg at 50% 50%,#d94a2b 0deg 2deg,transparent 2deg 8deg);
+    animation:spin 80s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg)}}
 
-  /* floating sakura petals */
-  .petal{position:fixed;top:-30px;z-index:2;font-size:1.4rem;animation:fall linear infinite;pointer-events:none}
-  @keyframes fall{
-    0%{transform:translateY(-30px) rotate(0)}
-    100%{transform:translateY(105vh) rotate(540deg)}
-  }
-
   .stage{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:2.5vh 4vw}
-
-  .panel{position:absolute;width:min(900px,94vw);max-height:90vh;
-    opacity:0;transform:translateY(30px) scale(.96) rotate(-1deg);pointer-events:none;
+  .panel{position:absolute;width:min(920px,94vw);max-height:90vh;
+    opacity:0;transform:translateY(30px) scale(.96);pointer-events:none;
     transition:all .45s cubic-bezier(.34,1.56,.64,1);}
   .panel.active{opacity:1;transform:none;pointer-events:auto}
 
-  /* manga panel box */
-  .manga{background:#fff;border:4px solid #1a1a2e;border-radius:18px;
-    box-shadow:8px 8px 0 #1a1a2e;position:relative;}
+  .card{background:#fff;border:4px solid #2a1a10;border-radius:20px;box-shadow:8px 8px 0 #2a1a10;position:relative}
+  .pop{font-family:'Bangers',cursive;letter-spacing:.03em}
+  .lil{font-family:'Lilita One',cursive}
 
-  .pop{font-family:'Bangers',cursive;letter-spacing:.04em}
-  .mochi{font-family:'Mochiy Pop One',sans-serif}
+  .tag{display:inline-block;padding:.2rem .8rem;background:#ffcf33;border:3px solid #2a1a10;border-radius:100px;
+    font-family:'Lilita One';font-size:.72rem;box-shadow:2px 2px 0 #2a1a10;transform:rotate(-2deg)}
 
-  /* speech bubble */
-  .bubble{background:#fff;border:3px solid #1a1a2e;border-radius:24px;position:relative;box-shadow:4px 4px 0 #1a1a2e}
-  .bubble::after{content:'';position:absolute;bottom:-18px;left:40px;width:0;height:0;
-    border-left:14px solid transparent;border-right:0 solid transparent;border-top:20px solid #1a1a2e}
-  .bubble::before{content:'';position:absolute;bottom:-12px;left:44px;width:0;height:0;z-index:1;
-    border-left:9px solid transparent;border-right:0 solid transparent;border-top:14px solid #fff}
+  .item{display:flex;justify-content:space-between;align-items:start;gap:1rem;padding:.75rem .9rem;border:3px solid #2a1a10;
+    border-radius:14px;background:#fffdf7;box-shadow:3px 3px 0 #2a1a10;transition:transform .15s}
+  .item:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #d94a2b}
+  .price{font-family:'Lilita One';color:#d94a2b;font-size:1.15rem;white-space:nowrap}
 
-  .tag{display:inline-block;padding:.2rem .7rem;background:#ffe14d;border:2.5px solid #1a1a2e;border-radius:100px;
-    font-weight:700;font-size:.72rem;box-shadow:2px 2px 0 #1a1a2e;transform:rotate(-2deg)}
+  .clink{display:flex;align-items:center;gap:.7rem;padding:.65rem .95rem;border:3px solid #2a1a10;border-radius:12px;
+    background:#fff;text-decoration:none;color:#2a1a10;font-weight:800;box-shadow:3px 3px 0 #2a1a10;transition:transform .15s}
+  .clink:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffcf33}
 
-  .skillbox{border:3px solid #1a1a2e;border-radius:12px;height:22px;background:#eef4ff;overflow:hidden;position:relative;box-shadow:3px 3px 0 #1a1a2e}
-  .skillfill{position:absolute;inset:0;width:0;background:repeating-linear-gradient(45deg,#5b9bd5,#5b9bd5 10px,#7fb3e0 10px,#7fb3e0 20px);transition:width 1s cubic-bezier(.34,1.56,.64,1)}
-
-  .proj{background:#fff;border:3px solid #1a1a2e;border-radius:14px;box-shadow:4px 4px 0 #1a1a2e;transition:transform .2s}
-  .proj:hover{transform:translate(-2px,-2px) rotate(-1deg);box-shadow:7px 7px 0 #ff8fb1}
-
-  .clink{display:flex;align-items:center;gap:.7rem;padding:.6rem .9rem;border:3px solid #1a1a2e;border-radius:12px;
-    background:#fff;text-decoration:none;color:#1a1a2e;font-weight:700;box-shadow:3px 3px 0 #1a1a2e;transition:transform .15s}
-  .clink:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #5b9bd5}
-
-  /* nav */
-  nav{position:fixed;bottom:3vh;left:50%;transform:translateX(-50%);z-index:30;display:flex;gap:8px}
-  .navbtn{font-family:'Mochiy Pop One',sans-serif;font-size:.66rem;padding:.5rem .95rem;border:3px solid #1a1a2e;border-radius:100px;
-    background:#fff;cursor:pointer;box-shadow:3px 3px 0 #1a1a2e;transition:transform .15s,background .2s}
+  nav{position:fixed;bottom:3vh;left:50%;transform:translateX(-50%);z-index:30;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;width:94vw}
+  .navbtn{font-family:'Lilita One';font-size:.7rem;padding:.5rem 1rem;border:3px solid #2a1a10;border-radius:100px;
+    background:#fff;cursor:pointer;box-shadow:3px 3px 0 #2a1a10;transition:transform .15s,background .2s}
   .navbtn:hover{transform:translateY(-3px)}
-  .navbtn.on{background:#ffe14d;transform:translateY(-3px) rotate(-2deg)}
+  .navbtn.on{background:#d94a2b;color:#fff;transform:translateY(-3px) rotate(-2deg)}
 
   ::-webkit-scrollbar{width:0}
-  .ovf{overflow:auto;max-height:60vh;padding-right:4px}
+  .ovf{overflow:auto;max-height:62vh;padding-right:4px}
 
+  .bounce{animation:bounce 2.5s ease-in-out infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
   .wiggle{animation:wiggle 3s ease-in-out infinite}
   @keyframes wiggle{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
-  .bounce{animation:bounce 2.5s ease-in-out infinite}
-  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .steam{animation:steam 2.2s ease-in-out infinite;transform-origin:bottom}
+  @keyframes steam{0%,100%{opacity:.2;transform:translateY(0) scaleY(1)}50%{opacity:.6;transform:translateY(-10px) scaleY(1.2)}}
 </style>
 </head>
 <body>
-<div class="speed"></div>
-<div class="halftone"></div>
+<div class="burst"></div>
+<div class="dots"></div>
 
 <div class="stage">
 
   <!-- ===== INICIO ===== -->
   <section class="panel active" data-p="0">
-    <div class="flex flex-col md:flex-row items-center gap-6 justify-center">
-      <!-- AVATAR ANIME (SVG dibujado) -->
+    <div class="flex flex-col md:flex-row items-center gap-8 justify-center">
+      <!-- BURGER MASCOTA -->
       <div class="bounce flex-shrink-0">
-        <svg width="240" height="260" viewBox="0 0 240 260" xmlns="http://www.w3.org/2000/svg">
-          <!-- cuello -->
-          <rect x="100" y="170" width="40" height="35" fill="#f4c9a8" stroke="#1a1a2e" stroke-width="4"/>
-          <!-- hombros / traje -->
-          <path d="M55 255 Q60 200 100 195 L140 195 Q180 200 185 255 Z" fill="#3a6dd0" stroke="#1a1a2e" stroke-width="4"/>
-          <path d="M120 195 L108 255 M120 195 L132 255" stroke="#1a1a2e" stroke-width="3" fill="none"/>
-          <path d="M112 200 L120 215 L128 200 Z" fill="#fff" stroke="#1a1a2e" stroke-width="3"/>
-          <!-- corbata -->
-          <path d="M120 215 L114 250 L120 258 L126 250 Z" fill="#ff5e8a" stroke="#1a1a2e" stroke-width="3"/>
-          <!-- cara -->
-          <ellipse cx="120" cy="120" rx="58" ry="62" fill="#f9d6b8" stroke="#1a1a2e" stroke-width="4"/>
-          <!-- pelo -->
-          <path d="M62 110 Q55 45 120 42 Q185 45 178 110 Q175 88 150 80 Q160 95 145 92 Q130 70 120 88 Q110 70 95 92 Q80 95 90 80 Q65 88 62 110 Z" fill="#2b3a67" stroke="#1a1a2e" stroke-width="4"/>
-          <path d="M62 110 Q60 130 66 145 Q60 100 78 78 Z" fill="#2b3a67" stroke="#1a1a2e" stroke-width="3"/>
-          <!-- mechones brillo -->
-          <path d="M100 60 Q110 75 105 90" stroke="#5b9bd5" stroke-width="3" fill="none" opacity=".7"/>
-          <!-- cejas -->
-          <path d="M88 102 Q98 96 108 101" stroke="#1a1a2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <path d="M132 101 Q142 96 152 102" stroke="#1a1a2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <!-- ojos grandes anime -->
-          <g>
-            <ellipse cx="98" cy="120" rx="13" ry="17" fill="#fff" stroke="#1a1a2e" stroke-width="3.5"/>
-            <circle cx="99" cy="122" r="9" fill="#3a6dd0"/>
-            <circle cx="99" cy="122" r="4.5" fill="#1a1a2e"/>
-            <circle cx="102" cy="118" r="3" fill="#fff"/>
-            <ellipse cx="142" cy="120" rx="13" ry="17" fill="#fff" stroke="#1a1a2e" stroke-width="3.5"/>
-            <circle cx="143" cy="122" r="9" fill="#3a6dd0"/>
-            <circle cx="143" cy="122" r="4.5" fill="#1a1a2e"/>
-            <circle cx="146" cy="118" r="3" fill="#fff"/>
+        <svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+          <!-- vapor -->
+          <g stroke="#d9b48a" stroke-width="4" stroke-linecap="round" fill="none" opacity=".5">
+            <path class="steam" d="M95 40 Q88 28 95 16"/>
+            <path class="steam" style="animation-delay:.4s" d="M130 34 Q123 20 130 8"/>
+            <path class="steam" style="animation-delay:.8s" d="M165 40 Q158 28 165 16"/>
           </g>
-          <!-- nariz -->
-          <path d="M120 128 L116 140" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- sonrisa -->
-          <path d="M100 150 Q120 168 140 150" stroke="#1a1a2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <!-- rubor -->
-          <ellipse cx="85" cy="140" rx="8" ry="5" fill="#ff9eb5" opacity=".6"/>
-          <ellipse cx="155" cy="140" rx="8" ry="5" fill="#ff9eb5" opacity=".6"/>
-          <!-- destello manga -->
-          <text x="172" y="70" font-size="26" fill="#ffe14d" stroke="#1a1a2e" stroke-width="1.5" font-family="Bangers">★</text>
+          <!-- pan superior -->
+          <path d="M40 100 Q40 50 130 50 Q220 50 220 100 Z" fill="#f0a94e" stroke="#2a1a10" stroke-width="5"/>
+          <!-- sésamo -->
+          <g fill="#fff6e0" stroke="#2a1a10" stroke-width="1.5">
+            <ellipse cx="95" cy="78" rx="5" ry="3" transform="rotate(20 95 78)"/>
+            <ellipse cx="130" cy="70" rx="5" ry="3" transform="rotate(-15 130 70)"/>
+            <ellipse cx="165" cy="78" rx="5" ry="3" transform="rotate(25 165 78)"/>
+            <ellipse cx="115" cy="90" rx="5" ry="3"/>
+            <ellipse cx="150" cy="90" rx="5" ry="3" transform="rotate(-20 150 90)"/>
+          </g>
+          <!-- lechuga -->
+          <path d="M38 102 Q55 118 70 102 Q88 118 105 102 Q123 118 140 102 Q158 118 175 102 Q193 118 210 102 Q222 110 220 116 L40 116 Q36 110 38 102 Z" fill="#7ac74f" stroke="#2a1a10" stroke-width="5"/>
+          <!-- tomate -->
+          <rect x="44" y="116" width="172" height="14" rx="6" fill="#e34234" stroke="#2a1a10" stroke-width="5"/>
+          <!-- queso -->
+          <path d="M44 130 L216 130 L216 142 Q190 158 175 142 Q160 158 140 144 Q120 158 105 144 Q85 158 70 144 Q55 156 44 144 Z" fill="#ffcf33" stroke="#2a1a10" stroke-width="5"/>
+          <!-- carne -->
+          <rect x="46" y="148" width="168" height="26" rx="13" fill="#6b3f25" stroke="#2a1a10" stroke-width="5"/>
+          <!-- pan inferior -->
+          <path d="M44 176 L216 176 Q224 176 224 188 Q224 210 130 210 Q36 210 36 188 Q36 176 44 176 Z" fill="#e8983c" stroke="#2a1a10" stroke-width="5"/>
+          <!-- ojos kawaii (en el pan de arriba) -->
+          <circle cx="108" cy="84" r="9" fill="#fff" stroke="#2a1a10" stroke-width="3"/>
+          <circle cx="110" cy="86" r="4.5" fill="#2a1a10"/>
+          <circle cx="112" cy="83" r="1.6" fill="#fff"/>
+          <circle cx="152" cy="84" r="9" fill="#fff" stroke="#2a1a10" stroke-width="3"/>
+          <circle cx="154" cy="86" r="4.5" fill="#2a1a10"/>
+          <circle cx="156" cy="83" r="1.6" fill="#fff"/>
+          <path d="M118 96 Q130 104 142 96" stroke="#2a1a10" stroke-width="3" fill="none" stroke-linecap="round"/>
         </svg>
       </div>
 
-      <div>
-        <div class="bubble p-6 mb-4 wiggle">
-          <p class="pop text-base" style="color:#5b9bd5">¡DIRECTOR DE EQUIPO &amp; TRAINER!</p>
-          <h1 class="pop leading-none mt-1" style="font-size:clamp(2.4rem,7vw,4.6rem);color:#1a1a2e">ANTONIO<br>SÁNCHEZ ROYO</h1>
-        </div>
-        <p class="mochi text-sm pl-2" style="color:#3a6dd0">「 Liderazgo que transforma equipos ✦ Formación que despierta potencial 」</p>
+      <div class="text-center md:text-left">
+        <span class="tag mb-3 inline-block">★ BURGERS DE VERDAD ★</span>
+        <h1 class="pop leading-[0.85]" style="font-size:clamp(3.2rem,11vw,7rem);color:#d94a2b;text-shadow:5px 5px 0 #2a1a10">ROYO<br>BURGER</h1>
+        <p class="lil text-base md:text-lg mt-3" style="color:#2a1a10">¡Carne 100% fresca · Pan artesano · Sabor brutal!</p>
+        <button onclick="document.querySelector('[data-go=1]').click()" class="lil mt-5 px-7 py-3 text-white" style="background:#d94a2b;border:4px solid #2a1a10;border-radius:100px;box-shadow:5px 5px 0 #2a1a10;font-size:1.1rem;cursor:pointer">VER EL MENÚ 🍔</button>
       </div>
     </div>
   </section>
 
-  <!-- ===== SOBRE MÍ ===== -->
+  <!-- ===== MENÚ BURGERS ===== -->
   <section class="panel" data-p="1">
-    <div class="manga p-7 md:p-9">
-      <span class="tag absolute -top-4 left-7">★ EPISODIO 01</span>
-      <h2 class="pop text-4xl md:text-5xl mb-4" style="color:#3a6dd0">SOBRE MÍ</h2>
-      <div class="grid md:grid-cols-2 gap-6 items-center">
-        <div class="mochi text-sm leading-relaxed space-y-3" style="font-family:'Zen Maru Gothic'">
-          <p>¡Profesional con más de una década dirigiendo equipos y formando talento! Mi especialidad es <b style="color:#ff5e8a">desarrollar el potencial humano</b> y optimizar procesos.</p>
-          <p>Combino coaching moderno con visión estratégica clara, logrando resultados medibles en productividad y satisfacción del equipo. 💪</p>
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div class="proj p-4 text-center"><div class="pop text-4xl" style="color:#3a6dd0">+10</div><div class="text-xs font-bold mt-1">AÑOS EXP.</div></div>
-          <div class="proj p-4 text-center"><div class="pop text-4xl" style="color:#ff5e8a">+50</div><div class="text-xs font-bold mt-1">FORMADOS</div></div>
-          <div class="proj p-4 text-center"><div class="pop text-4xl" style="color:#5b9bd5">8</div><div class="text-xs font-bold mt-1">PROYECTOS</div></div>
-          <div class="proj p-4 text-center" style="background:#ffe14d"><div class="pop text-4xl">100%</div><div class="text-xs font-bold mt-1">¡ENERGÍA!</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROYECTOS ===== -->
-  <section class="panel" data-p="2">
-    <div class="manga p-7 md:p-9">
-      <span class="tag absolute -top-4 left-7">★ EPISODIO 02</span>
-      <h2 class="pop text-4xl md:text-5xl mb-4" style="color:#ff5e8a">¡MISIONES!</h2>
+    <div class="card p-7 md:p-9">
+      <span class="tag absolute -top-4 left-7">NUESTRAS BURGERS</span>
+      <h2 class="pop text-4xl md:text-5xl mb-4" style="color:#d94a2b">EL MENÚ 🍔</h2>
       <div class="grid md:grid-cols-2 gap-3 ovf">
-        <div class="proj p-4"><div class="flex justify-between mb-1"><span class="tag" style="transform:rotate(0)">Liderazgo</span><span class="pop text-lg" style="color:#5b9bd5">2023</span></div><h3 class="mochi text-sm">Programa de Desarrollo de Líderes</h3><p class="text-xs mt-1" style="color:#555">Programa interno para mandos. ¡+35% en KPIs!</p></div>
-        <div class="proj p-4"><div class="flex justify-between mb-1"><span class="tag" style="transform:rotate(0)">Formación</span><span class="pop text-lg" style="color:#5b9bd5">2022</span></div><h3 class="mochi text-sm">Onboarding Corporativo</h3><p class="text-xs mt-1" style="color:#555">Rediseño de incorporación. ¡-40% adaptación!</p></div>
-        <div class="proj p-4"><div class="flex justify-between mb-1"><span class="tag" style="transform:rotate(0)">Coaching</span><span class="pop text-lg" style="color:#5b9bd5">2021</span></div><h3 class="mochi text-sm">Comunicación Efectiva</h3><p class="text-xs mt-1" style="color:#555">Talleres de ventas. ¡+25% satisfacción!</p></div>
-        <div class="proj p-4"><div class="flex justify-between mb-1"><span class="tag" style="transform:rotate(0)">Estrategia</span><span class="pop text-lg" style="color:#5b9bd5">2020</span></div><h3 class="mochi text-sm">Reestructuración Comercial</h3><p class="text-xs mt-1" style="color:#555">Equipo de 20 personas. ¡+50% objetivos!</p></div>
-        <div class="proj p-4"><div class="flex justify-between mb-1"><span class="tag" style="transform:rotate(0)">Digital</span><span class="pop text-lg" style="color:#5b9bd5">2019</span></div><h3 class="mochi text-sm">Formación E-Learning</h3><p class="text-xs mt-1" style="color:#555">+200 horas de contenido en LMS.</p></div>
-        <div class="proj p-4"><div class="flex justify-between mb-1"><span class="tag" style="transform:rotate(0)">Gestión</span><span class="pop text-lg" style="color:#5b9bd5">2018</span></div><h3 class="mochi text-sm">Implementación OKR</h3><p class="text-xs mt-1" style="color:#555">Metodología OKR en 3 departamentos.</p></div>
+        <div class="item"><div><h3 class="lil text-lg">La Royo Clásica</h3><p class="text-xs" style="color:#7a6a5a">Carne de vacuno, queso cheddar, lechuga, tomate y salsa de la casa.</p></div><span class="price">8,90€</span></div>
+        <div class="item"><div><h3 class="lil text-lg">Doble Bacon Crunch</h3><p class="text-xs" style="color:#7a6a5a">Doble carne, doble queso, bacon crujiente y cebolla caramelizada.</p></div><span class="price">11,50€</span></div>
+        <div class="item"><div><h3 class="lil text-lg">BBQ Smoke</h3><p class="text-xs" style="color:#7a6a5a">Carne ahumada, cheddar, aros de cebolla y salsa barbacoa.</p></div><span class="price">10,90€</span></div>
+        <div class="item"><div><h3 class="lil text-lg">Spicy Jalapeño 🌶️</h3><p class="text-xs" style="color:#7a6a5a">Carne, queso pepper jack, jalapeños y salsa picante chipotle.</p></div><span class="price">10,50€</span></div>
+        <div class="item"><div><h3 class="lil text-lg">Crispy Chicken</h3><p class="text-xs" style="color:#7a6a5a">Pollo crujiente, lechuga iceberg, pepinillos y mayo de ajo.</p></div><span class="price">9,90€</span></div>
+        <div class="item"><div><h3 class="lil text-lg">Veggie Garden 🌱</h3><p class="text-xs" style="color:#7a6a5a">Hamburguesa vegetal, aguacate, rúcula y salsa de yogur.</p></div><span class="price">9,50€</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HABILIDADES ===== -->
+  <!-- ===== EXTRAS & BEBIDAS ===== -->
+  <section class="panel" data-p="2">
+    <div class="card p-7 md:p-9">
+      <span class="tag absolute -top-4 left-7">PARA ACOMPAÑAR</span>
+      <h2 class="pop text-4xl md:text-5xl mb-4" style="color:#e8983c">EXTRAS &amp; BEBIDAS 🍟</h2>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div>
+          <h3 class="lil text-xl mb-2" style="color:#d94a2b">🍟 Acompañamientos</h3>
+          <div class="space-y-2">
+            <div class="item"><span class="lil">Patatas fritas caseras</span><span class="price">3,50€</span></div>
+            <div class="item"><span class="lil">Patatas deluxe con cheddar</span><span class="price">4,90€</span></div>
+            <div class="item"><span class="lil">Aros de cebolla (8 uds)</span><span class="price">4,50€</span></div>
+            <div class="item"><span class="lil">Nuggets de pollo (6 uds)</span><span class="price">5,50€</span></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="lil text-xl mb-2" style="color:#d94a2b">🥤 Bebidas &amp; Postres</h3>
+          <div class="space-y-2">
+            <div class="item"><span class="lil">Refrescos / Agua</span><span class="price">2,20€</span></div>
+            <div class="item"><span class="lil">Batido artesano (varios)</span><span class="price">4,50€</span></div>
+            <div class="item"><span class="lil">Cerveza local</span><span class="price">3,00€</span></div>
+            <div class="item"><span class="lil">Brownie con helado 🍦</span><span class="price">4,90€</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="lil text-center mt-5 text-sm" style="color:#7a6a5a">★ ¡Haz cualquier burger MENÚ (+patatas y bebida) por solo +3,90€! ★</p>
+    </div>
+  </section>
+
+  <!-- ===== NOSOTROS ===== -->
   <section class="panel" data-p="3">
-    <div class="manga p-7 md:p-9">
-      <span class="tag absolute -top-4 left-7">★ EPISODIO 03</span>
-      <h2 class="pop text-4xl md:text-5xl mb-5" style="color:#5b9bd5">¡PODERES!</h2>
-      <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
-        <div><div class="flex justify-between text-sm font-bold mb-1"><span>Dirección de Equipos</span><span style="color:#ff5e8a">LV.95</span></div><div class="skillbox"><div class="skillfill" data-w="95"></div></div></div>
-        <div><div class="flex justify-between text-sm font-bold mb-1"><span>Formación &amp; Coaching</span><span style="color:#ff5e8a">LV.92</span></div><div class="skillbox"><div class="skillfill" data-w="92"></div></div></div>
-        <div><div class="flex justify-between text-sm font-bold mb-1"><span>Diseño de Formaciones</span><span style="color:#ff5e8a">LV.93</span></div><div class="skillbox"><div class="skillfill" data-w="93"></div></div></div>
-        <div><div class="flex justify-between text-sm font-bold mb-1"><span>Comunicación</span><span style="color:#ff5e8a">LV.90</span></div><div class="skillbox"><div class="skillfill" data-w="90"></div></div></div>
-        <div><div class="flex justify-between text-sm font-bold mb-1"><span>Resolución de Conflictos</span><span style="color:#ff5e8a">LV.87</span></div><div class="skillbox"><div class="skillfill" data-w="87"></div></div></div>
-        <div><div class="flex justify-between text-sm font-bold mb-1"><span>Planificación Estratégica</span><span style="color:#ff5e8a">LV.88</span></div><div class="skillbox"><div class="skillfill" data-w="88"></div></div></div>
-      </div>
-      <div class="mt-6 flex flex-wrap gap-2">
-        <span class="tag">Empatía</span><span class="tag">Liderazgo</span><span class="tag">Proactividad</span><span class="tag">Resiliencia</span><span class="tag">Escucha activa</span><span class="tag">Adaptabilidad</span>
+    <div class="card p-7 md:p-9">
+      <span class="tag absolute -top-4 left-7">QUIÉNES SOMOS</span>
+      <h2 class="pop text-4xl md:text-5xl mb-4" style="color:#7ac74f">NUESTRA HISTORIA</h2>
+      <div class="grid md:grid-cols-2 gap-6 items-center">
+        <div class="space-y-3 text-sm font-bold" style="color:#4a3a2a">
+          <p>En <b style="color:#d94a2b">ROYO BURGER</b> creemos que una buena hamburguesa lo cambia todo. 🍔</p>
+          <p>Usamos <b>carne 100% fresca</b>, pan amasado cada mañana y verduras de proveedores locales. Sin congelados, sin atajos.</p>
+          <p>Un equipo apasionado, recetas propias y mucho cariño en cada plato. ¡Te esperamos!</p>
+        </div>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="item flex-col text-center"><div class="pop text-3xl" style="color:#d94a2b">100%</div><div class="text-xs">FRESCO</div></div>
+          <div class="item flex-col text-center"><div class="pop text-3xl" style="color:#e8983c">+15</div><div class="text-xs">RECETAS</div></div>
+          <div class="item flex-col text-center"><div class="pop text-3xl" style="color:#7ac74f">★★★★★</div><div class="text-xs">RESEÑAS</div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTACTO ===== -->
+  <!-- ===== CONTACTO / UBICACIÓN ===== -->
   <section class="panel" data-p="4">
-    <div class="manga p-7 md:p-9">
-      <span class="tag absolute -top-4 left-7">★ FINAL</span>
-      <h2 class="pop text-4xl md:text-5xl mb-2" style="color:#ff5e8a">¡CONTÁCTAME!</h2>
-      <p class="mochi text-sm mb-5" style="color:#3a6dd0">¿Listos para la próxima aventura juntos? ✦</p>
+    <div class="card p-7 md:p-9">
+      <span class="tag absolute -top-4 left-7">VISÍTANOS</span>
+      <h2 class="pop text-4xl md:text-5xl mb-2" style="color:#d94a2b">¡TE ESPERAMOS! 📍</h2>
+      <p class="lil text-sm mb-5" style="color:#7a6a5a">Pásate, llama o reserva. ¡El hambre no espera!</p>
       <div class="grid md:grid-cols-2 gap-3">
-        <a href="mailto:antonio.sanchez@email.com" class="clink"><svg width="22" height="22" fill="none" stroke="#3a6dd0" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg><span class="text-xs">antonio.sanchez@email.com</span></a>
-        <a href="tel:+34600000000" class="clink"><svg width="22" height="22" fill="none" stroke="#3a6dd0" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg><span class="text-xs">+34 600 000 000</span></a>
-        <a href="https://linkedin.com/in/antonio-sanchez" target="_blank" class="clink"><svg width="22" height="22" fill="#3a6dd0" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span class="text-xs">linkedin.com/in/antonio-sanchez</span></a>
-        <a href="https://github.com/antonio-sanchez" target="_blank" class="clink"><svg width="22" height="22" fill="#3a6dd0" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg><span class="text-xs">github.com/antonio-sanchez</span></a>
+        <a href="https://maps.google.com" target="_blank" class="clink"><svg width="22" height="22" fill="none" stroke="#d94a2b" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg><span class="text-sm">Calle Mayor 12, Ciudad Real</span></a>
+        <a href="tel:+34926000000" class="clink"><svg width="22" height="22" fill="none" stroke="#d94a2b" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg><span class="text-sm">926 00 00 00</span></a>
+        <a href="#" class="clink"><svg width="22" height="22" fill="none" stroke="#d94a2b" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm">Lun–Dom · 13:00–00:00</span></a>
+        <a href="https://instagram.com" target="_blank" class="clink"><svg width="22" height="22" fill="#d94a2b" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.17.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.17 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.17-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.41-2.19a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.42-.17-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.3 5.3 0 110 10.6 5.3 5.3 0 010-10.6zm0 8.74a3.44 3.44 0 100-6.88 3.44 3.44 0 000 6.88zm6.74-8.94a1.24 1.24 0 11-2.48 0 1.24 1.24 0 012.48 0z"/></svg><span class="text-sm">@royoburger</span></a>
       </div>
     </div>
   </section>
@@ -221,27 +205,14 @@
 </div>
 
 <nav>
-  <button class="navbtn on" data-go="0">★ Inicio</button>
-  <button class="navbtn" data-go="1">Sobre mí</button>
-  <button class="navbtn" data-go="2">Misiones</button>
-  <button class="navbtn" data-go="3">Poderes</button>
+  <button class="navbtn on" data-go="0">🍔 Inicio</button>
+  <button class="navbtn" data-go="1">Menú</button>
+  <button class="navbtn" data-go="2">Extras</button>
+  <button class="navbtn" data-go="3">Nosotros</button>
   <button class="navbtn" data-go="4">Contacto</button>
 </nav>
 
 <script>
-/* sakura petals */
-const petals=['🌸','✿','❀','🌸','✦'];
-for(let i=0;i<14;i++){
-  const p=document.createElement('div');p.className='petal';
-  p.textContent=petals[Math.floor(Math.random()*petals.length)];
-  p.style.left=Math.random()*100+'vw';
-  p.style.animationDuration=(7+Math.random()*8)+'s';
-  p.style.animationDelay=(-Math.random()*10)+'s';
-  p.style.opacity=.4+Math.random()*.4;
-  document.body.appendChild(p);
-}
-
-/* navegación sin scroll */
 const panels=[...document.querySelectorAll('.panel')];
 const btns=[...document.querySelectorAll('.navbtn')];
 let cur=0;
@@ -250,7 +221,6 @@ function go(i){
   panels[cur].classList.remove('active');btns[cur].classList.remove('on');
   cur=i;
   panels[i].classList.add('active');btns[i].classList.add('on');
-  if(i===3)panels[3].querySelectorAll('.skillfill').forEach(f=>{f.style.width='0';setTimeout(()=>f.style.width=f.dataset.w+'%',120);});
 }
 btns.forEach(b=>b.addEventListener('click',()=>go(+b.dataset.go)));
 addEventListener('keydown',e=>{
